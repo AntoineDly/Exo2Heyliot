@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello Cats!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+<div>
+    {% for cat in cats %}
+        <img src="{{ cat.url }}" alt="{{ cat.id }}">
+    {% endfor %}
+</div>
+{% set nextPage = page + 1 %}
+<a href="{{ path('all', {'categoryId':categoryId, 'page':nextPage}) }}"> Passez à la page suivante</a>
+{% endblock %}
